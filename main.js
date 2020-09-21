@@ -27,6 +27,7 @@ function createMainWindow() {
         icon: `${__dirname}/assets/icon.png`,
         webPreferences: {
             nodeIntegration: true,
+            devTools: isDev ? true : false
         },
     });
 
@@ -64,8 +65,12 @@ function createMainWindow() {
                 console.log('Error loading React DevTools: ', err)
             );
         }
+        
     });
 
+    if(!isDev) {
+        mainWindow.setMenu(null);
+    } 
     mainWindow.on('closed', () => (mainWindow = null));
 }
 

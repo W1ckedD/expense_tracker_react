@@ -1,14 +1,11 @@
-## Simple Electron React Boilerplate
+# Simple application for keeping track of your expenses
 
-This is a simple boilerplate to get up and running with Electron and React. It is a customized version of [Alex Devero's](https://github.com/alexdevero/electron-react-webpack-boilerplate) repo and is used in my Electron course
+## built using React and Electron
 
 ### Install
 
 #### Clone this repo
 
-```
-git clone https://github.com/bradtraversy/simple-electron-react.git
-```
 
 #### Install dependencies
 
