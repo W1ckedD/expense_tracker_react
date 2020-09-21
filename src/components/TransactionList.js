@@ -7,7 +7,7 @@ const TransactionList = ({ transactions }) => {
         return <h3>No transactions found</h3>;
     }
     return (
-        <table class='table'>
+        <table className='table'>
             <thead>
                 <tr>
                     <th scope='col'>#</th>
@@ -20,7 +20,7 @@ const TransactionList = ({ transactions }) => {
             </thead>
             <tbody>
                 {transactions.map((transaction, index) => (
-                    <TransactionItem transaction={transaction} index={index} />
+                    <TransactionItem key={transaction._id} transaction={transaction} index={index} />
                 ))}
             </tbody>
         </table>

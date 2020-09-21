@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ipcRenderer } from 'electron';
 
 const Login = () => {
     const [error, setError] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        ipcRenderer.on('error', (event, data) => {
+            setError(data);
+        });
+    }, []);
 
     const handleChange = e => {
         switch (e.target.name) {

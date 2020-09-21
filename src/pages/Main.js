@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ipcRenderer } from 'electron';
 
+import BarChart from '../components/BarChart';
+
 const Main = ({ userId }) => {
     const [user, setUser] = useState(null);
     const [transactions, setTransactions] = useState([]);
@@ -32,10 +34,10 @@ const Main = ({ userId }) => {
             const tsx = JSON.parse(data.transactions);
             setTransactions(tsx);
         });
-    }, [user]);
+    }, []);
 
     if (!user) {
-        return <h3>Loading ...</h3>
+        return <h3>Loading ...</h3>;
     }
 
     return (
@@ -49,12 +51,18 @@ const Main = ({ userId }) => {
                             user.balance > 0 ? 'text-success' : 'text-danger'
                         }
                     >
-                        {user.balance}
+                        {user.balance} $
                     </span>
                 ) : (
                     ''
                 )}
+                
             </h4>
+            <BarChart
+                transactions={transactions}
+                startDateString={startDate}
+                endDateString={endDate}
+            />
         </div>
     );
 };

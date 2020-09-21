@@ -47,7 +47,7 @@ const Register = () => {
         ipcRenderer.send('register', { username, password, initialBalance });
     };
     const Error = error ? (
-        <div class='alert alert-danger' role='alert'>
+        <div className='alert alert-danger' role='alert'>
             {error}
         </div>
     ) : null;
@@ -55,47 +55,47 @@ const Register = () => {
         <div>
             {Error}
             <form onSubmit={handleSubmit}>
-                <div class='form-group'>
+                <div className='form-group'>
                     <label>Username</label>
                     <input
                         type='text'
-                        class='form-control'
+                        className='form-control'
                         name='username'
                         value={username}
                         onChange={handleChange}
                     />
                 </div>
-                <div class='form-group'>
+                <div className='form-group'>
                     <label>Password</label>
                     <input
                         type='password'
-                        class='form-control'
+                        className='form-control'
                         name='password'
                         value={password}
                         onChange={handleChange}
                     />
                 </div>
-                <div class='form-group'>
+                <div className='form-group'>
                     <label>Confirm Password</label>
                     <input
                         type='password'
-                        class='form-control'
+                        className='form-control'
                         name='password2'
                         value={password2}
                         onChange={handleChange}
                     />
                 </div>
-                <div class='form-group'>
+                <div className='form-group'>
                     <label>Initial Balance</label>
                     <input
                         type='number'
-                        class='form-control'
+                        className='form-control'
                         name='initialBalance'
                         value={initialBalance}
                         onChange={handleChange}
                     />
                 </div>
-                <button type='submit' class='btn btn-primary btn-block mt-2'>
+                <button type='submit' className='btn btn-primary btn-block mt-2'>
                     Register
                 </button>
             </form>

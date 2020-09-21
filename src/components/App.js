@@ -15,6 +15,7 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Main from '../pages/Main';
 import Transactions from '../pages/Transactions';
+import AddTransaction from '../pages/AddTransaction';
 
 const App = () => {
     const [isLoggedIn, setIsloggedIn] = useState(false);
@@ -38,7 +39,7 @@ const App = () => {
             setUserId(user._id);
             setIsloggedIn(true);
         });
-    }, [userId]);
+    }, []);
     const logout = () => {
         localStorage.removeItem('userId');
         setIsloggedIn(false);
@@ -67,6 +68,9 @@ const App = () => {
             <Navbar isLoggedIn={isLoggedIn} logout={logout} />
             <div className='container'>
                 <Switch>
+                    <Route exact path="/add-transaction">
+                        <AddTransaction userId={userId} />
+                    </Route>
                     <Route exact path='/transactions'>
                         <Transactions userId={userId} />
                     </Route>

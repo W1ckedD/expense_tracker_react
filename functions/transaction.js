@@ -21,9 +21,9 @@ exports.addTransaction = async (event, data) => {
         const transaction = JSON.parse(data.transaction);
         const user = await User.findById(transaction.userId);
         if (transaction.type === 'income') {
-            user.balance += transaction.amount;
+            user.balance += parseFloat(transaction.amount);
         } else {
-            user.balance -= transaction.amount;
+            user.balance -= parseFloat(transaction.amount);
         }
         await user.save();
         const tsx = await Transaction.create(transaction);
@@ -91,9 +91,9 @@ exports.deleteTransaction = async (event, data) => {
             _id: transactionId,
         });
         if (transaction.type === 'income') {
-            user.balance -= transaction.amount;
+            user.balance -= parseFloat(transaction.amount);
         } else {
-            user.balance += transaction.amount;
+            user.balance += parseFloat(transaction.amount);
         }
         await user.save();
         await transaction.deleteOne();
